@@ -1,7 +1,7 @@
 # I. Introduction
 This is an analysis through the job postings focusing in data engineer roles. This project explores the top paying jobs including the in-demand skills that connects to high salary paying job openings.
 
-For qsl queries used, check all using the link:
+For SQL queries used, check all using the link:
 [Job_Analys](/SQL_PROJECT_DATA_JOB_ANALYSIS/)
 
 # II. Background
