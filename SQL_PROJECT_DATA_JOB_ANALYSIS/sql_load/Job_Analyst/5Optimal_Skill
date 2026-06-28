@@ -1,3 +1,10 @@
+/*
+Question: What are the optimal skills to learn when applying as Data Engineer?
+- Identify the top 25 skills in high demand with high average salaries for Data Engineer roles
+- Focus on remote positions with specified salaries
+- Purpose: This is to target the skills needed to learn and develop in terms on job postings with high demand and high salary.
+*/
+
 with total_job_with_skills as
     (
     select
@@ -10,7 +17,7 @@ with total_job_with_skills as
         skills_job_dim as sjd on sjd.job_id = jpc.job_id
     WHERE
         jpc.salary_year_avg is not null AND
-        job_title_short = 'Data Analyst' AND
+        job_title_short = 'Data Engineer' AND
         job_work_from_home = TRUE
     GROUP BY
         sjd.skill_id
@@ -28,3 +35,133 @@ ORDER BY
     tjws.skill_count desc,
     tjws.yearly_avg DESC
 limit 25;
+
+/*
+[
+  {
+    "skills": "sql",
+    "skill_count": "568",
+    "yearly_avg": "129190.85"
+  },
+  {
+    "skills": "python",
+    "skill_count": "535",
+    "yearly_avg": "132199.96"
+  },
+  {
+    "skills": "aws",
+    "skill_count": "367",
+    "yearly_avg": "132865.28"
+  },
+  {
+    "skills": "azure",
+    "skill_count": "254",
+    "yearly_avg": "129574.46"
+  },
+  {
+    "skills": "spark",
+    "skill_count": "237",
+    "yearly_avg": "139837.61"
+  },
+  {
+    "skills": "snowflake",
+    "skill_count": "202",
+    "yearly_avg": "134372.91"
+  },
+  {
+    "skills": "airflow",
+    "skill_count": "151",
+    "yearly_avg": "138518.31"
+  },
+  {
+    "skills": "redshift",
+    "skill_count": "141",
+    "yearly_avg": "132980.20"
+  },
+  {
+    "skills": "java",
+    "skill_count": "139",
+    "yearly_avg": "138087.11"
+  },
+  {
+    "skills": "kafka",
+    "skill_count": "134",
+    "yearly_avg": "150549.04"
+  },
+  {
+    "skills": "databricks",
+    "skill_count": "130",
+    "yearly_avg": "130072.32"
+  },
+  {
+    "skills": "scala",
+    "skill_count": "113",
+    "yearly_avg": "141777.32"
+  },
+  {
+    "skills": "hadoop",
+    "skill_count": "98",
+    "yearly_avg": "137707.03"
+  },
+  {
+    "skills": "nosql",
+    "skill_count": "93",
+    "yearly_avg": "136429.66"
+  },
+  {
+    "skills": "sql server",
+    "skill_count": "82",
+    "yearly_avg": "121363.91"
+  },
+  {
+    "skills": "gcp",
+    "skill_count": "76",
+    "yearly_avg": "133387.63"
+  },
+  {
+    "skills": "tableau",
+    "skill_count": "76",
+    "yearly_avg": "115246.36"
+  },
+  {
+    "skills": "git",
+    "skill_count": "74",
+    "yearly_avg": "128352.39"
+  },
+  {
+    "skills": "power bi",
+    "skill_count": "65",
+    "yearly_avg": "116948.83"
+  },
+  {
+    "skills": "pyspark",
+    "skill_count": "64",
+    "yearly_avg": "139428.36"
+  },
+  {
+    "skills": "docker",
+    "skill_count": "64",
+    "yearly_avg": "134286.25"
+  },
+  {
+    "skills": "oracle",
+    "skill_count": "63",
+    "yearly_avg": "121979.93"
+  },
+  {
+    "skills": "ssis",
+    "skill_count": "61",
+    "yearly_avg": "115272.06"
+  },
+  {
+    "skills": "r",
+    "skill_count": "60",
+    "yearly_avg": "121064.67"
+  },
+  {
+    "skills": "kubernetes",
+    "skill_count": "56",
+    "yearly_avg": "158189.73"
+  }
+]
+*/

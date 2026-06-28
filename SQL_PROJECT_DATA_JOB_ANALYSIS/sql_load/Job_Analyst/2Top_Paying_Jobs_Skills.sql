@@ -1,3 +1,10 @@
+/*
+Question: What skills are required for the top-paying data engineer jobs?
+- Use the top 10 highest-paying Data Engineer jobs?
+- Include the specific skills required for these roles
+- Purpose: To determine the jobs available with skills needed to learn and develop to land a top salary jobs 
+*/
+
 with top_jobs as
 (
     SELECT
@@ -11,7 +18,7 @@ with top_jobs as
         company_dim as cd on cd.company_id = jpc.company_id
     WHERE
         salary_year_avg is not null AND
-        job_title_short = 'Data Analyst' AND
+        job_title_short = 'Data Engineer' AND
         job_location = 'Anywhere'
     limit 10
 )
@@ -29,348 +36,650 @@ ORDER BY
     salary_year_avg DESC;
 
 /*
-What this chart shows
-*SQL dominates → it appeared in all 10 top-paying jobs.
-*Python is the strongest secondary skill, showing up in 60% of roles.
-*Visualization tools (Tableau, Power BI) remain valuable but usually alongside technical skills.
-*Cloud technologies (AWS, BigQuery, Redshift) appear repeatedly in higher-paying positions, suggesting infrastructure knowledge increases earning potential.
-
 [
   {
-    "job_id": 1326467,
-    "job_title": "Data Analyst",
-    "company_name": "EPIC Brokers",
-    "salary_year_avg": "135000.0",
-    "skills": "excel"
-  },
-  {
-    "job_id": 1354909,
-    "job_title": "Technical Business/Data Analyst (REMOTE)",
-    "company_name": "GEICO",
-    "salary_year_avg": "113500.0",
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
     "skills": "azure"
   },
   {
-    "job_id": 1354909,
-    "job_title": "Technical Business/Data Analyst (REMOTE)",
-    "company_name": "GEICO",
-    "salary_year_avg": "113500.0",
-    "skills": "python"
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "assembly"
   },
   {
-    "job_id": 1354909,
-    "job_title": "Technical Business/Data Analyst (REMOTE)",
-    "company_name": "GEICO",
-    "salary_year_avg": "113500.0",
-    "skills": "sql"
-  },
-  {
-    "job_id": 1354909,
-    "job_title": "Technical Business/Data Analyst (REMOTE)",
-    "company_name": "GEICO",
-    "salary_year_avg": "113500.0",
-    "skills": "oracle"
-  },
-  {
-    "job_id": 1354909,
-    "job_title": "Technical Business/Data Analyst (REMOTE)",
-    "company_name": "GEICO",
-    "salary_year_avg": "113500.0",
-    "skills": "snowflake"
-  },
-  {
-    "job_id": 1354909,
-    "job_title": "Technical Business/Data Analyst (REMOTE)",
-    "company_name": "GEICO",
-    "salary_year_avg": "113500.0",
-    "skills": "hadoop"
-  },
-  {
-    "job_id": 1354909,
-    "job_title": "Technical Business/Data Analyst (REMOTE)",
-    "company_name": "GEICO",
-    "salary_year_avg": "113500.0",
-    "skills": "power bi"
-  },
-  {
-    "job_id": 1354909,
-    "job_title": "Technical Business/Data Analyst (REMOTE)",
-    "company_name": "GEICO",
-    "salary_year_avg": "113500.0",
-    "skills": "db2"
-  },
-  {
-    "job_id": 909000,
-    "job_title": "Associate Director, Data Analysis",
-    "company_name": "EL Education (Formerly Expeditionary Learning)",
-    "salary_year_avg": "105000.0",
-    "skills": "tableau"
-  },
-  {
-    "job_id": 909000,
-    "job_title": "Associate Director, Data Analysis",
-    "company_name": "EL Education (Formerly Expeditionary Learning)",
-    "salary_year_avg": "105000.0",
-    "skills": "word"
-  },
-  {
-    "job_id": 909000,
-    "job_title": "Associate Director, Data Analysis",
-    "company_name": "EL Education (Formerly Expeditionary Learning)",
-    "salary_year_avg": "105000.0",
-    "skills": "r"
-  },
-  {
-    "job_id": 1064019,
-    "job_title": "Legal Project Management Data Analyst",
-    "company_name": "Ogletree Deakins",
-    "salary_year_avg": "99500.0",
-    "skills": "excel"
-  },
-  {
-    "job_id": 1064019,
-    "job_title": "Legal Project Management Data Analyst",
-    "company_name": "Ogletree Deakins",
-    "salary_year_avg": "99500.0",
-    "skills": "r"
-  },
-  {
-    "job_id": 1064019,
-    "job_title": "Legal Project Management Data Analyst",
-    "company_name": "Ogletree Deakins",
-    "salary_year_avg": "99500.0",
-    "skills": "python"
-  },
-  {
-    "job_id": 1064019,
-    "job_title": "Legal Project Management Data Analyst",
-    "company_name": "Ogletree Deakins",
-    "salary_year_avg": "99500.0",
-    "skills": "sql"
-  },
-  {
-    "job_id": 1064019,
-    "job_title": "Legal Project Management Data Analyst",
-    "company_name": "Ogletree Deakins",
-    "salary_year_avg": "99500.0",
-    "skills": "tableau"
-  },
-  {
-    "job_id": 914174,
-    "job_title": "Data Analyst, Supply Chain (Remote)",
-    "company_name": "Home Depot / THD",
-    "salary_year_avg": "90000.0",
-    "skills": "sql"
-  },
-  {
-    "job_id": 914174,
-    "job_title": "Data Analyst, Supply Chain (Remote)",
-    "company_name": "Home Depot / THD",
-    "salary_year_avg": "90000.0",
-    "skills": "oracle"
-  },
-  {
-    "job_id": 914174,
-    "job_title": "Data Analyst, Supply Chain (Remote)",
-    "company_name": "Home Depot / THD",
-    "salary_year_avg": "90000.0",
-    "skills": "sql server"
-  },
-  {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "snowflake"
-  },
-  {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "sql"
-  },
-  {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "python"
-  },
-  {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "scala"
-  },
-  {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
     "skills": "java"
   },
   {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "r"
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "scala"
   },
   {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "javascript"
-  },
-  {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "tableau"
-  },
-  {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "jira"
-  },
-  {
-    "job_id": 833662,
-    "job_title": "Marketing Data Analyst (Remote)",
-    "company_name": "World Education Services",
-    "salary_year_avg": "89000.0",
-    "skills": "confluence"
-  },
-  {
-    "job_id": 1112585,
-    "job_title": "Senior Data Analyst II",
-    "company_name": "BlueLabs Analytics, Inc.",
-    "salary_year_avg": "85000.0",
-    "skills": "sql"
-  },
-  {
-    "job_id": 1112585,
-    "job_title": "Senior Data Analyst II",
-    "company_name": "BlueLabs Analytics, Inc.",
-    "salary_year_avg": "85000.0",
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
     "skills": "python"
   },
   {
-    "job_id": 1112585,
-    "job_title": "Senior Data Analyst II",
-    "company_name": "BlueLabs Analytics, Inc.",
-    "salary_year_avg": "85000.0",
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "sql"
+  },
+  {
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "kafka"
+  },
+  {
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "hadoop"
+  },
+  {
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "airflow"
+  },
+  {
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "spark"
+  },
+  {
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "gcp"
+  },
+  {
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
     "skills": "snowflake"
   },
   {
-    "job_id": 1112585,
-    "job_title": "Senior Data Analyst II",
-    "company_name": "BlueLabs Analytics, Inc.",
-    "salary_year_avg": "85000.0",
-    "skills": "tableau"
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "redshift"
   },
   {
-    "job_id": 934891,
-    "job_title": "Data Analysts- Capital Markets Team",
-    "company_name": "CyberCoders",
-    "salary_year_avg": "82500.0",
-    "skills": "word"
+    "job_id": 7593,
+    "job_title": "Staff Data Engineer (Greater NYC Area, NY or Remote)",
+    "company_name": "Integral Ad Science",
+    "salary_year_avg": "192500.0",
+    "skills": "aws"
   },
   {
-    "job_id": 934891,
-    "job_title": "Data Analysts- Capital Markets Team",
-    "company_name": "CyberCoders",
-    "salary_year_avg": "82500.0",
-    "skills": "excel"
-  },
-  {
-    "job_id": 934891,
-    "job_title": "Data Analysts- Capital Markets Team",
-    "company_name": "CyberCoders",
-    "salary_year_avg": "82500.0",
-    "skills": "sql"
-  },
-  {
-    "job_id": 794255,
-    "job_title": "Manufacturing Data Analyst",
-    "company_name": "ATR International",
-    "salary_year_avg": "80000.0",
-    "skills": "tableau"
-  },
-  {
-    "job_id": 794255,
-    "job_title": "Manufacturing Data Analyst",
-    "company_name": "ATR International",
-    "salary_year_avg": "80000.0",
-    "skills": "excel"
-  },
-  {
-    "job_id": 794255,
-    "job_title": "Manufacturing Data Analyst",
-    "company_name": "ATR International",
-    "salary_year_avg": "80000.0",
-    "skills": "matplotlib"
-  },
-  {
-    "job_id": 794255,
-    "job_title": "Manufacturing Data Analyst",
-    "company_name": "ATR International",
-    "salary_year_avg": "80000.0",
-    "skills": "r"
-  },
-  {
-    "job_id": 794255,
-    "job_title": "Manufacturing Data Analyst",
-    "company_name": "ATR International",
-    "salary_year_avg": "80000.0",
+    "job_id": 810479,
+    "job_title": "Staff Data Engineer - Marketing Analytics - 100% Remote",
+    "company_name": "Motion Recruitment",
+    "salary_year_avg": "190000.0",
     "skills": "python"
   },
   {
-    "job_id": 794255,
-    "job_title": "Manufacturing Data Analyst",
-    "company_name": "ATR International",
-    "salary_year_avg": "80000.0",
+    "job_id": 810479,
+    "job_title": "Staff Data Engineer - Marketing Analytics - 100% Remote",
+    "company_name": "Motion Recruitment",
+    "salary_year_avg": "190000.0",
     "skills": "sql"
   },
   {
-    "job_id": 1301761,
-    "job_title": "Business Data Analyst",
-    "company_name": "Kaye/Bassman International",
-    "salary_year_avg": "62500.0",
-    "skills": "sheets"
+    "job_id": 289748,
+    "job_title": "Hands-On Head of Data Engineering (Energy)",
+    "company_name": "Motion Recruitment",
+    "salary_year_avg": "177500.0",
+    "skills": "python"
   },
   {
-    "job_id": 1301761,
-    "job_title": "Business Data Analyst",
-    "company_name": "Kaye/Bassman International",
-    "salary_year_avg": "62500.0",
-    "skills": "smartsheet"
+    "job_id": 289748,
+    "job_title": "Hands-On Head of Data Engineering (Energy)",
+    "company_name": "Motion Recruitment",
+    "salary_year_avg": "177500.0",
+    "skills": "scala"
   },
   {
-    "job_id": 1301761,
-    "job_title": "Business Data Analyst",
-    "company_name": "Kaye/Bassman International",
-    "salary_year_avg": "62500.0",
+    "job_id": 289748,
+    "job_title": "Hands-On Head of Data Engineering (Energy)",
+    "company_name": "Motion Recruitment",
+    "salary_year_avg": "177500.0",
+    "skills": "azure"
+  },
+  {
+    "job_id": 289748,
+    "job_title": "Hands-On Head of Data Engineering (Energy)",
+    "company_name": "Motion Recruitment",
+    "salary_year_avg": "177500.0",
+    "skills": "aws"
+  },
+  {
+    "job_id": 289748,
+    "job_title": "Hands-On Head of Data Engineering (Energy)",
+    "company_name": "Motion Recruitment",
+    "salary_year_avg": "177500.0",
+    "skills": "airflow"
+  },
+  {
+    "job_id": 7208,
+    "job_title": "Lead Data Engineer",
+    "company_name": "Storm3",
+    "salary_year_avg": "175000.0",
+    "skills": "node.js"
+  },
+  {
+    "job_id": 7208,
+    "job_title": "Lead Data Engineer",
+    "company_name": "Storm3",
+    "salary_year_avg": "175000.0",
+    "skills": "ruby"
+  },
+  {
+    "job_id": 7208,
+    "job_title": "Lead Data Engineer",
+    "company_name": "Storm3",
+    "salary_year_avg": "175000.0",
+    "skills": "spark"
+  },
+  {
+    "job_id": 7208,
+    "job_title": "Lead Data Engineer",
+    "company_name": "Storm3",
+    "salary_year_avg": "175000.0",
+    "skills": "aws"
+  },
+  {
+    "job_id": 7208,
+    "job_title": "Lead Data Engineer",
+    "company_name": "Storm3",
+    "salary_year_avg": "175000.0",
+    "skills": "databricks"
+  },
+  {
+    "job_id": 7208,
+    "job_title": "Lead Data Engineer",
+    "company_name": "Storm3",
+    "salary_year_avg": "175000.0",
+    "skills": "ruby"
+  },
+  {
+    "job_id": 7208,
+    "job_title": "Lead Data Engineer",
+    "company_name": "Storm3",
+    "salary_year_avg": "175000.0",
+    "skills": "javascript"
+  },
+  {
+    "job_id": 7208,
+    "job_title": "Lead Data Engineer",
+    "company_name": "Storm3",
+    "salary_year_avg": "175000.0",
+    "skills": "python"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
     "skills": "sql"
   },
   {
-    "job_id": 1301761,
-    "job_title": "Business Data Analyst",
-    "company_name": "Kaye/Bassman International",
-    "salary_year_avg": "62500.0",
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "python"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "nosql"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "scala"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "java"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "shell"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "mongo"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "mysql"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "cassandra"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "azure"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "aws"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "redshift"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "snowflake"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "spark"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "hadoop"
+  },
+  {
+    "job_id": 255232,
+    "job_title": "Principal Associate, Data Engineer(Remote)",
+    "company_name": "Capital One",
+    "salary_year_avg": "166500.0",
+    "skills": "kafka"
+  },
+  {
+    "job_id": 369633,
+    "job_title": "Data Engineer (Remote Option)",
+    "company_name": "Balsam Brands",
+    "salary_year_avg": "136500.0",
+    "skills": "sql"
+  },
+  {
+    "job_id": 369633,
+    "job_title": "Data Engineer (Remote Option)",
+    "company_name": "Balsam Brands",
+    "salary_year_avg": "136500.0",
+    "skills": "mysql"
+  },
+  {
+    "job_id": 369633,
+    "job_title": "Data Engineer (Remote Option)",
+    "company_name": "Balsam Brands",
+    "salary_year_avg": "136500.0",
+    "skills": "sql server"
+  },
+  {
+    "job_id": 369633,
+    "job_title": "Data Engineer (Remote Option)",
+    "company_name": "Balsam Brands",
+    "salary_year_avg": "136500.0",
+    "skills": "oracle"
+  },
+  {
+    "job_id": 369633,
+    "job_title": "Data Engineer (Remote Option)",
+    "company_name": "Balsam Brands",
+    "salary_year_avg": "136500.0",
+    "skills": "aws"
+  },
+  {
+    "job_id": 369633,
+    "job_title": "Data Engineer (Remote Option)",
+    "company_name": "Balsam Brands",
+    "salary_year_avg": "136500.0",
+    "skills": "azure"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "pandas"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "pyspark"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
     "skills": "excel"
   },
   {
-    "job_id": 1301761,
-    "job_title": "Business Data Analyst",
-    "company_name": "Kaye/Bassman International",
-    "salary_year_avg": "62500.0",
-    "skills": "github"
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "power bi"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "git"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "jenkins"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "terraform"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "ansible"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "python"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "sql"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "azure"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "databricks"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "powershell"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "aws"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "redshift"
+  },
+  {
+    "job_id": 662408,
+    "job_title": "Data Engineer",
+    "company_name": "Get It Recruit - Information Technology",
+    "salary_year_avg": "136000.0",
+    "skills": "snowflake"
+  },
+  {
+    "job_id": 2381,
+    "job_title": "Data Engineer-AWS Pipeline Developer (Python)",
+    "company_name": "CBTS",
+    "salary_year_avg": "130000.0",
+    "skills": "nosql"
+  },
+  {
+    "job_id": 2381,
+    "job_title": "Data Engineer-AWS Pipeline Developer (Python)",
+    "company_name": "CBTS",
+    "salary_year_avg": "130000.0",
+    "skills": "sql"
+  },
+  {
+    "job_id": 2381,
+    "job_title": "Data Engineer-AWS Pipeline Developer (Python)",
+    "company_name": "CBTS",
+    "salary_year_avg": "130000.0",
+    "skills": "python"
+  },
+  {
+    "job_id": 2381,
+    "job_title": "Data Engineer-AWS Pipeline Developer (Python)",
+    "company_name": "CBTS",
+    "salary_year_avg": "130000.0",
+    "skills": "aws"
+  },
+  {
+    "job_id": 2381,
+    "job_title": "Data Engineer-AWS Pipeline Developer (Python)",
+    "company_name": "CBTS",
+    "salary_year_avg": "130000.0",
+    "skills": "redshift"
+  },
+  {
+    "job_id": 2381,
+    "job_title": "Data Engineer-AWS Pipeline Developer (Python)",
+    "company_name": "CBTS",
+    "salary_year_avg": "130000.0",
+    "skills": "flow"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "sql"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "r"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "scala"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "python"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "power bi"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "tableau"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "kafka"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "hadoop"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "spark"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "gcp"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "redshift"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "bigquery"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "aws"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "azure"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "postgresql"
+  },
+  {
+    "job_id": 348109,
+    "job_title": "Data Engineer (Entry Level)",
+    "company_name": "Patterned Learning AI",
+    "salary_year_avg": "65000.0",
+    "skills": "mysql"
+  },
+  {
+    "job_id": 2695,
+    "job_title": "Data Engineer ll (Latin America - Remote Role)",
+    "company_name": "Qventus, Inc",
+    "salary_year_avg": "55000.0",
+    "skills": "java"
+  },
+  {
+    "job_id": 2695,
+    "job_title": "Data Engineer ll (Latin America - Remote Role)",
+    "company_name": "Qventus, Inc",
+    "salary_year_avg": "55000.0",
+    "skills": "python"
+  },
+  {
+    "job_id": 2695,
+    "job_title": "Data Engineer ll (Latin America - Remote Role)",
+    "company_name": "Qventus, Inc",
+    "salary_year_avg": "55000.0",
+    "skills": "flow"
   }
 ]
 */
