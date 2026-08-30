@@ -1,0 +1,2 @@
+# Summary
+This section will show you some of my projects as data analysis particulary in Postgresql. It demonstrates my skill on how deep I know in sql for analyzing data. Additionally, some of the projects also shows some modern skills which is AI adoption and utilization.
