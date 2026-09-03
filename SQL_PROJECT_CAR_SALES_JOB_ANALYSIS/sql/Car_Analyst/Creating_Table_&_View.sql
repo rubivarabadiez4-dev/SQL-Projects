@@ -18,9 +18,6 @@ create TABLE car_sales_data
     saledate text
 );
 
-drop TABLE car_sales_data;
-drop view car_data;
-
 create view car_data AS
     SELECT
         year,
@@ -62,9 +59,3 @@ create view car_data AS
         saledate is not null AND
         condition is not null AND
         odometer is not null;
-
-SELECT
-    *
-FROM
-    car_data
-LIMIT 10;

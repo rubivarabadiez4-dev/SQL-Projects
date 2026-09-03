@@ -1,4 +1,8 @@
-/*8. What is the relationship of condition to the selling price and number of sales*/
+/*
+5.1. What is the relationship of condition and odometer to the selling price and number of sales?
+- Identify the best condition and odometer in terms of sales and average price.
+- Purpose: To prioritize the selling of cars in relation to its condition and odometer.
+*/
 
 SELECT
     CASE

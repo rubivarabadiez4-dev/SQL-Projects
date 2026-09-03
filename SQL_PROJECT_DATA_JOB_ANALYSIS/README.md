@@ -2,7 +2,7 @@
 This is an analysis through the job postings focusing in data engineer roles. This project explores the top paying jobs including the in-demand skills that connects to high salary paying job openings.
 
 For SQL queries used, check all the files using the link:
-[Job_Analys](/SQL_PROJECT_DATA_JOB_ANALYSIS/)
+[Job_Analys](/SQL_PROJECT_DATA_JOB_ANALYSIS/sql_load/Job_Analyst/)
 
 # II. Background
 The purpose for this analysis is to understand the best skills to learn and develop to land a high paying job.

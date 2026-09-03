@@ -1,4 +1,8 @@
-/*6. What are the top models for each body type?*/
+/*
+2.2. What are the top models for each body type and for every maker?
+- Identify the highest count of sales
+- Purpose: To focus on what type of cars that has high volume of sales.
+*/
 
 SELECT
     *
@@ -18,4 +22,6 @@ FROM
             body, total_sales desc
     )
 WHERE
-    body_rank <= 5;
+    body_rank <= 5
+ORDER BY
+    model;
