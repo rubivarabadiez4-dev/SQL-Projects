@@ -18,7 +18,7 @@ The purpose for this analysis is to understand how price and demand changes depe
 
 
 # III. Tools Used
-To analyze the data available for the job postings, I used the following tools:
+To analyze the car sales data, I used the following tools:
 
 1. **SQL:** The core for data analysis, allowing me to query the database to obtain the needed insights.
 2. **POSTGRESQL:** The chosen database management system for handling the data.
