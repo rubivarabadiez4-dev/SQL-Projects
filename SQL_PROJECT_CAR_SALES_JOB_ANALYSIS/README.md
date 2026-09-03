@@ -210,7 +210,7 @@ LIMIT 50;
 ### 5. What is the relationship of condition and odometer to the selling price and number of sales?
 To prioritize the selling of cars in relation to its condition and odometer.
 
-2.1 SQL
+5.1 SQL
 ```sql
 SELECT
     CASE
@@ -230,7 +230,7 @@ ORDER BY
     avg_price desc;
 ```
 
-2.2 SQL
+5.2 SQL
 ```sql
 SELECT
     CASE
